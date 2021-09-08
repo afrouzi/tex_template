@@ -10,4 +10,4 @@ echo "*.bash" >> .gitignore
 git add -A 
 git commit -m "init commit" -a
 code . -r
-rm initilize.bash
+rm initialize.bash
