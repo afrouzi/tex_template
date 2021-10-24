@@ -1,4 +1,5 @@
-# add project name after the equal sign on run in terminal
+# This file changes the parent folder name to your project's name and initializes a git repository in the folder
+# To run the file: add project name after the equal sign and run the following command in terminal: 'source ./initialize.bash'
 PROJECT_NAME=
 
 cd ..
