@@ -44,6 +44,7 @@
 \usepackage{amssymb}
 \usepackage{setspace}
 \usepackage[longnamesfirst,authoryear]{natbib}
+	\setlength{\bibsep}{6pt plus 0.3ex}
 \usepackage{import}
 \usepackage{hyperref}
     \hypersetup{colorlinks=true,linkcolor=darkred,citecolor=darkred,urlcolor=darkmegneta}
@@ -84,6 +85,9 @@
 
 %% MAKE TITLE
 \ifbuildtitle
+\title{\mytitle\thanks{\mythanks}}
+\author{\myauthors}
+\date{\mydate} 
 \AtBeginDocument{
     \maketitle
     \thispagestyle{empty}
@@ -99,11 +103,6 @@
     \pagenumbering{arabic}
 }
 \fi
-
-
-\title{\Large{\mytitle}\thanks{\mythanks}}
-\author{\myauthors}
-\date{\mydate} 
 
 %% OTHER COMMANDS:
 \renewcommand{\d}{\mathrm{d}}
