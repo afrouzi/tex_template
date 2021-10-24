@@ -17,6 +17,7 @@
   headfont=\color{darkblue}\normalfont\bfseries,
   notefont=\mdseries\bfseries, notebraces={(}{)},
   bodyfont=\color{darkblue}\normalfont,
+  qed=\qedsymbol
 ]{thmstyle}
 \declaretheoremstyle[
   spaceabove=2pt, spacebelow=2pt,
@@ -29,7 +30,9 @@
 	\declaretheorem[style=thmstyle,name=Remark]{remark}
 	\declaretheorem[style=lemstyle,name=Lemma,sibling=thm]{lem}
 	\declaretheorem[style=lemstyle,name=Corollary,sibling=thm]{cor}
-	\declaretheorem[style=lemstyle,name=Definition,sibling=thm]{defn}
+	\declaretheorem[style=lemstyle,name=Definition]{defn}
+    \declaretheorem[style=lemstyle,name=Definition,numbered=no]{defn*}
+    \declaretheorem[style=lemstyle,name=Algorithm]{algorithm}
 	\renewcommand{\qedsymbol}{\rule{1.2ex}{1.2ex}}
 	\renewenvironment{proof}[1][\proofname]{\par
 		\pushQED{\qed}%
@@ -61,7 +64,8 @@
 \usepackage{titlesec}
     \titlespacing*{\section}{0pt}{2ex plus 1ex minus .2ex}{1.5ex plus 1ex minus .2ex}
     \titlespacing*{\subsection}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus 0.5ex minus .2ex}
-    \titlespacing*{\paragraph}{0pt}{1ex plus .2ex minus .2ex}{0.7ex plus 0.2ex minus .2ex}
+    \titlespacing*{\subsubsection}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus 0.5ex minus .2ex}
+    \titlespacing*{\paragraph}{0pt}{0.7ex plus .2ex minus .2ex}{0.7ex plus 0.2ex minus .2ex}
 % \usepackage[outdir=./]{epstopdf}
 % \usepackage{graphicx}
 % \usepackage{xcolor}
