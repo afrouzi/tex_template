@@ -6,7 +6,7 @@ cd ..
 mv tex_template $PROJECT_NAME
 
 cd $PROJECT_NAME
-rm -r .git 
+[ -d .git ] && rm -r -f .git 
 git init 
 echo "*.bash" >> .gitignore
 git add -A 
