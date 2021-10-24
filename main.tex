@@ -1,11 +1,11 @@
-\documentclass[12pt,english]{article}
 %% TITLE/BIBLIOGRAPHY INFO:
     \newcommand{\mytitle}{TITLE}
     \newcommand{\mythanks}{TITLE FOOTNOTE}
     \newcommand{\myauthors}{
         AUTHOR 1  \\ AFFILIATION 1
-        \and
-        AUTHOR 2 \\ AFFILIATION 2
+        % uncomment for more authors:
+        % \and
+        % AUTHOR 2 \\ AFFILIATION 2
     }
     \newcommand{\mydate}{\today}
     \newcommand{\myjelcodes}{JEL CODES}
@@ -16,6 +16,7 @@
     \newcommand{\mybibstyle}{econometrica} % or aer
     \newcommand{\mybibfile}{references.bib}
 
+\documentclass[12pt,english]{article}
 \usepackage[]{afrouzi}
 % Options for afrouzi_style: 
 % 'note': skips the title page
@@ -29,10 +30,9 @@
 
 %% IMPORT CONTENT
 \onehalfspacing
-    \import{}{body.tex}
+    \import{content/}{body.tex}
 
-% BIBLIOGRAPHY
-
+%% BIBLIOGRAPHY
 \begin{singlespace}
 \newpage{}
     \small 
