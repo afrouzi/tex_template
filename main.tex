@@ -1,6 +1,5 @@
 \documentclass[12pt,english]{article}
-    \newif\ifbuildtitle
-    \buildtitlefalse % change to true to maketitle
+
     \newcommand{\mytitle}{TITLE}
     \newcommand{\mythanks}{TITLE FOOTNOTE}
     \newcommand{\myauthors}{
@@ -14,62 +13,13 @@
     \newcommand{\myabstract}{
         ABSTRACT
     }
-    \newcommand{\mybibstyle}{chicago}
+    \newcommand{\mybibstyle}{econometrica} % or aer
     \newcommand{\mybibfile}{references.bib}
 
-\usepackage[T1]{fontenc}
-\usepackage[latin9]{luainputenc}
-\usepackage[sc]{mathpazo}
-    \linespread{1.2}
-\usepackage{geometry}
-    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
-\usepackage{soul}
-\usepackage{array}
-\usepackage{float}
-\usepackage{setspace}
-\usepackage{lscape}
-\usepackage{multirow}
-\usepackage{amsmath}
-\usepackage{amsthm}
-    \theoremstyle{definition}
-    \newtheorem{defn}{\protect\definitionname}
-    \theoremstyle{definition}
-    \newtheorem{prop}{\protect\propositionname}
-    \theoremstyle{plain}
-    \newtheorem{cor}{\protect\corollaryname}
-    \theoremstyle{plain}
-    \newtheorem{lem}{\protect\lemmaname}
-    \theoremstyle{definition}
-    \newtheorem*{defn*}{\protect\definitionname}
-    \theoremstyle{plain}
-    \newtheorem{lyxalgorithm}{\protect\algorithmname}
-    \newtheorem{remark}{\protect\remarkname}
-    \theoremstyle{plain}
-    \providecommand{\algorithmname}{Algorithm}
-    \providecommand{\definitionname}{Definition}
-    \providecommand{\lemmaname}{Lemma}
-    \providecommand{\propositionname}{Proposition}
-    \providecommand{\corollaryname}{Corollary}
-    \providecommand{\remarkname}{Remark}
-\usepackage{amssymb}
-\usepackage{setspace}
-\usepackage[longnamesfirst,authoryear]{natbib}
-\usepackage{import}
-\usepackage{hyperref}
-    \hypersetup{colorlinks=true,linkcolor=darkred,citecolor=darkmagenta,urlcolor=darkblue}
-\usepackage{booktabs}
-\usepackage{apptools}
-    \AtAppendix{\counterwithin{lem}{section}
-            \counterwithin{cor}{section}
-            }
-\usepackage{subcaption}
-\usepackage{tikz}
-\usepackage{url}
-\usepackage{pgfplots}
-    \pgfplotsset{compat=1.13}
-\usepackage{appendix}
-\usepackage{apptools}
-\usepackage{rotating}
+\usepackage[]{afrouzi}
+% Options for afrouzi_style: 
+% 'note': skips the title page
+% 'econometrica': 1.5 inch margins from all sides
 
 % \usepackage{rotfloat}
 % \usepackage{etoolbox}
@@ -81,59 +31,17 @@
 % \usepackage{babel}
 % \usepackage{multirow}
 
-% NUMBER STUFF WITHIN SECTIONS
-\numberwithin{equation}{section}
-\AtAppendix{\counterwithin{prop}{section}}
-
-% PRETTY COLORS
-\definecolor{darkred}{rgb}{0.55, 0.0, 0.0}
-\definecolor{darkgreen}{rgb}{0.0, 0.55, 0.0}
-\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
-\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
-
-%% BLUE THEOREMS AND PROPOSITIONS
-\newenvironment{bprop}
-    {\color{darkblue}\begin{prop}}
-    {\end{prop}}
-\newenvironment{bthm}
-    {\color{darkblue}\begin{thm}}
-    {\end{thm}}
-	
-% ROMAN NUMBERS FOR QJE
-
-\renewcommand{\thetable}{\Roman{table}}
-\renewcommand{\thefigure}{\Roman{figure}}
-
-%% TITLE/AUTHORS/AFFILIATIONS
-
-\title{\Large{\mytitle}\thanks{\mythanks}}
-\author{\myauthors}
-\date{\mydate} 
-
 \begin{document}
 
-%% MAKE TITLE
-
-\ifbuildtitle
-    \maketitle
-    \begin{abstract}
-        \begin{singlespace}
-    \myabstract
-    \vspace{\baselineskip} \\
-    \noindent \emph{JEL Codes: \myjelcodes} \\
-    \noindent \emph{Key Words: \mykeywords}
-        \end{singlespace}
-    \end{abstract}
-    \newpage{}
-\fi
-
 %% IMPORT CONTENT
+\onehalfspacing
     \import{}{body.tex}
 
 % BIBLIOGRAPHY
 
 \begin{singlespace}
 \newpage{}
+    \small 
     \bibliographystyle{\mybibstyle}
     \bibliography{\mybibfile}
 \end{singlespace}

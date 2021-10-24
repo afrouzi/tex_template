@@ -1,0 +1,109 @@
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{luainputenc}
+\usepackage{fourier}
+\usepackage{geometry}
+    \geometry{tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage{soul}
+\usepackage{array}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\declaretheoremstyle[
+  spaceabove=2pt, spacebelow=2pt,
+  headfont=\color{darkblue}\normalfont\bfseries,
+  notefont=\mdseries\bfseries, notebraces={(}{)},
+  bodyfont=\color{darkblue}\normalfont,
+]{thmstyle}
+\declaretheoremstyle[
+  spaceabove=2pt, spacebelow=2pt,
+  headfont=\normalfont\bfseries,
+  notefont=\mdseries\bfseries, notebraces={(}{)},
+  bodyfont=\normalfont\itshape,
+]{lemstyle}
+	\declaretheorem[style=thmstyle,name=Theorem]{thm}
+	\declaretheorem[style=thmstyle,name=Proposition,sibling=thm]{prop}
+	\declaretheorem[style=thmstyle,name=Remark]{remark}
+	\declaretheorem[style=lemstyle,name=Lemma,sibling=thm]{lem}
+	\declaretheorem[style=lemstyle,name=Corollary,sibling=thm]{cor}
+	\declaretheorem[style=lemstyle,name=Definition,sibling=thm]{defn}
+	\renewcommand{\qedsymbol}{\rule{1.2ex}{1.2ex}}
+	\renewenvironment{proof}[1][\proofname]{\par
+		\pushQED{\qed}%
+		\normalfont \topsep2\p@\@plus6\p@\relax
+		\trivlist
+		\item\relax
+		{\itshape
+		#1\@addpunct{.}}\hspace\labelsep\ignorespaces
+		}{%
+		\popQED\endtrivlist\@endpefalse
+	}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage[longnamesfirst,authoryear]{natbib}
+\usepackage{import}
+\usepackage{hyperref}
+    \hypersetup{colorlinks=true,linkcolor=darkred,citecolor=darkred,urlcolor=darkmegneta}
+\usepackage{booktabs}
+\usepackage{apptools}
+    \AtAppendix{\counterwithin{lem}{section}
+            \counterwithin{cor}{section}
+            }
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{pgfplots}
+    \pgfplotsset{compat=1.13}
+\usepackage{appendix}
+\usepackage{rotating}
+
+% NUMBER STUFF WITHIN SECTIONS
+\numberwithin{equation}{section}
+\AtAppendix{\counterwithin{prop}{section}}
+
+% PRETTY COLORS
+\definecolor{darkred}{rgb}{0.55, 0.0, 0.0}
+\definecolor{darkgreen}{rgb}{0.0, 0.55, 0.0}
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
+
+% ROMAN NUMBERS FOR QJE
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\thefigure}{\Roman{figure}}
+
+%% TITLE/AUTHORS/AFFILIATIONS
+
+\newif\ifbuildtitle
+\buildtitletrue
+\DeclareOption{note}{\buildtitlefalse}
+\DeclareOption{econometrica}{\geometry{tmargin=1.5in,bmargin=1.5in,lmargin=1.5in,rmargin=1.5in}}
+\ProcessOptions\relax
+
+%% MAKE TITLE
+\ifbuildtitle
+\AtBeginDocument{
+    \maketitle
+    \thispagestyle{empty}
+    \begin{abstract}
+        \begin{singlespace}
+    \myabstract
+    \vspace{\baselineskip} \\
+    \noindent \emph{JEL Codes: \myjelcodes} \\
+    \noindent \emph{Key Words: \mykeywords}
+        \end{singlespace}
+    \end{abstract}
+    \newpage{}
+    \pagenumbering{arabic}
+}
+\fi
+
+
+\title{\Large{\mytitle}\thanks{\mythanks}}
+\author{\myauthors}
+\date{\mydate} 
+
+%% OTHER COMMANDS:
+\renewcommand{\d}{\mathrm{d}}

@@ -1,4 +1,5 @@
-PROJECT_NAME=working_memory
+# add project name after the equal sign on run in terminal
+PROJECT_NAME=
 
 cd ..
 mv tex_template $PROJECT_NAME
