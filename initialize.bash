@@ -7,6 +7,7 @@ cd ..
 mv tex_template $PROJECT_NAME
 
 cd $PROJECT_NAME
+rm README.md
 [ -d .git ] && rm -r -f .git 
 git init 
 echo "*.bash" >> .gitignore
