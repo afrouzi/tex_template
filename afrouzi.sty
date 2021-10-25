@@ -1,74 +1,122 @@
+%% Import regular packages 
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{luainputenc}
+
+% Font package: fourier by default which uses Adobe Utopia
 \usepackage{fourier}
-\usepackage{geometry}
-    \geometry{tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+% \caps{Small Caps}, \so{letter_spacing}, \ul{underline}, \st{overstriking}
 \usepackage{soul}
+
+% for tables: https://ctan.org/pkg/array?lang=en, https://ctan.org/pkg/multirow, https://ctan.org/pkg/booktabs
 \usepackage{array}
+\usepackage{multirow} 
+\usepackage{booktabs}
+
+% support for placement of figures/tables: https://ctan.org/pkg/float
 \usepackage{float}
+
+% for line-spacing: \singlespacing, \doublespacing, \onehalfspacing
 \usepackage{setspace}
+
+% for landscape figures/tables https://ctan.org/pkg/lscape
 \usepackage{lscape}
-\usepackage{multirow}
+
+% for math environments and operators: https://ctan.org/pkg/amsmath
+% envs: equation, align, gather, multiline, alignat, flalign, split
 \usepackage{amsmath}
-    \allowdisplaybreaks[1]
-\usepackage{amsthm}
+    % allow for page breaks in the middle of equation blocks
+    \allowdisplaybreaks[1] 
+
+% for theorems: https://ctan.org/pkg/amsthm, https://ctan.org/pkg/thmtools
+\usepackage{amsthm} 
 \usepackage{thmtools}
-\declaretheoremstyle[
-  spaceabove=2pt, spacebelow=2pt,
-  headfont=\color{darkblue}\normalfont\bfseries,
-  notefont=\mdseries\bfseries, notebraces={(}{)},
-  bodyfont=\color{darkblue}\normalfont,
-  qed=\qedsymbol
-]{thmstyle}
-\declaretheoremstyle[
-  spaceabove=2pt, spacebelow=2pt,
-  headfont=\normalfont\bfseries,
-  notefont=\mdseries\bfseries, notebraces={(}{)},
-  bodyfont=\normalfont\itshape,
-]{lemstyle}
-	\declaretheorem[style=thmstyle,name=Theorem]{thm}
-	\declaretheorem[style=thmstyle,name=Proposition,sibling=thm]{prop}
-	\declaretheorem[style=thmstyle,name=Remark]{remark}
-	\declaretheorem[style=lemstyle,name=Lemma,sibling=thm]{lem}
-	\declaretheorem[style=lemstyle,name=Corollary,sibling=thm]{cor}
-	\declaretheorem[style=lemstyle,name=Definition]{defn}
+    % theorem/proposition style - colored with blue
+    \declaretheoremstyle[
+    spaceabove=2pt, spacebelow=2pt,
+    headfont=\color{darkblue}\normalfont\bfseries,
+    notefont=\mdseries\bfseries, notebraces={(}{)},
+    bodyfont=\color{darkblue}\normalfont,
+    qed=\qedsymbol
+    ]{thmstyle}
+
+    % lemma, corollary style
+    \declaretheoremstyle[
+    spaceabove=2pt, spacebelow=2pt,
+    headfont=\normalfont\bfseries,
+    notefont=\mdseries\bfseries, notebraces={(}{)},
+    bodyfont=\normalfont\itshape,
+    ]{lemstyle}
+
+    % envs: thm, prop, remark, lem, cor, defn, defn*, algorithm, proof
+    \declaretheorem[style=thmstyle,name=Theorem]{thm}
+    \declaretheorem[style=thmstyle,name=Proposition,sibling=thm]{prop}
+    \declaretheorem[style=thmstyle,name=Remark]{remark}
+    \declaretheorem[style=lemstyle,name=Lemma,sibling=thm]{lem}
+    \declaretheorem[style=lemstyle,name=Corollary,sibling=thm]{cor}
+    \declaretheorem[style=lemstyle,name=Definition]{defn}
     \declaretheorem[style=lemstyle,name=Definition,numbered=no]{defn*}
     \declaretheorem[style=lemstyle,name=Algorithm]{algorithm}
-	\renewcommand{\qedsymbol}{\rule{1.2ex}{1.2ex}}
-	\renewenvironment{proof}[1][\proofname]{\par
-		\pushQED{\qed}%
-		\normalfont \topsep2\p@\@plus6\p@\relax
-		\trivlist
-		\item\relax
-		{\itshape
-		#1\@addpunct{.}}\hspace\labelsep\ignorespaces
-		}{%
-		\popQED\endtrivlist\@endpefalse
-	}
+    \renewcommand{\qedsymbol}{\rule{1.2ex}{1.2ex}}
+    \renewenvironment{proof}[1][\proofname]{\par
+        \pushQED{\qed}%
+        \normalfont \topsep2\p@\@plus6\p@\relax
+        \trivlist
+        \item\relax
+        {\itshape
+        #1\@addpunct{.}}\hspace\labelsep\ignorespaces
+        }{%
+        \popQED\endtrivlist\@endpefalse
+    }
+
+% for mathemtical symbols
 \usepackage{amssymb}
+
+% for bibliography
 \usepackage[longnamesfirst,authoryear]{natbib}
 	\setlength{\bibsep}{6pt plus 0.3ex}
+
+% to import tex files into main.tex
 \usepackage{import}
+
+% to have colored hyperlinks
 \usepackage{hyperref}
     \hypersetup{colorlinks=true,linkcolor=darkred,citecolor=darkred,urlcolor=darkmagenta}
-\usepackage{booktabs}
-\usepackage{apptools}
-    \AtAppendix{\counterwithin{lem}{section}
+
+% for appendix: https://ctan.org/pkg/appendix, https://ctan.org/pkg/apptools
+\usepackage{appendix} % \appendix
+\usepackage{apptools} % \AtAppendix, \IfAppendix
+    \AtAppendix{
+            \counterwithin{prop}{section}
+            \counterwithin{lem}{section}
             \counterwithin{cor}{section}
+            \numberwithin{equation}{section}
             }
+
+% for captions:
+\usepackage{caption}
 \usepackage{subcaption}
+
+% for plots and figures:
 \usepackage{tikz}
-\usepackage{url}
 \usepackage{pgfplots}
     \pgfplotsset{compat=1.13}
-\usepackage{appendix}
+
+% could be used to redefine url styles: https://ctan.org/pkg/url
+\usepackage{url}
+
+% space before and after section/subsection/paragraph titles 
 \usepackage{titlesec}
     \titlespacing*{\section}{0pt}{1.7ex plus 1ex minus .2ex}{1.5ex plus 1ex minus .2ex}
     \titlespacing*{\subsection}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus 0.5ex minus .2ex}
     \titlespacing*{\subsubsection}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus 0.5ex minus .2ex}
     \titlespacing*{\paragraph}{0pt}{0.7ex plus .2ex minus .2ex}{0.7ex plus 0.2ex minus .2ex}
+
+% no space between items in lists (itemize, enumerate)
 \usepackage{enumitem}
     \setlist{nosep}
+
+% control space before and after equation environments:
 \usepackage{etoolbox}
     \newcommand{\zerodisplayskips}{%
       \setlength{\abovedisplayskip}{1ex}%
@@ -78,15 +126,16 @@
     \appto{\normalsize}{\zerodisplayskips}
     \appto{\small}{\zerodisplayskips}
     \appto{\footnotesize}{\zerodisplayskips}
-% \usepackage[outdir=./]{epstopdf}
+
+% where to compile eps figures to pdf
+\usepackage[outdir=./content/figures/]{epstopdf}
+
+% for margins (see declare options below)
+\usepackage{geometry}
 % \usepackage{graphicx}
 % \usepackage{xcolor}
 
-% NUMBER STUFF WITHIN SECTIONS
-\numberwithin{equation}{section}
-\AtAppendix{\counterwithin{prop}{section}}
-
-% PRETTY COLORS
+%% PRETTY COLORS
 \definecolor{darkred}{rgb}{0.55, 0.0, 0.0}
 \definecolor{darkgreen}{rgb}{0.0, 0.55, 0.0}
 \definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
@@ -96,14 +145,19 @@
 \renewcommand{\thetable}{\Roman{table}}
 \renewcommand{\thefigure}{\Roman{figure}}
 
-%% TITLE/AUTHORS/AFFILIATIONS
-
+%% DECLARE OPTIONS
 \newif\ifbuildtitle
 \buildtitletrue
 \DeclareOption{note}{\buildtitlefalse}
-\DeclareOption{econometrica}{\geometry{tmargin=1.5in,bmargin=1.5in,lmargin=1.5in,rmargin=1.5in}}
+\DeclareOption{ecma_margins}{
+        \geometry{tmargin=1.5in,bmargin=1.5in,lmargin=1.5in,rmargin=1.5in}
+        }
+\DeclareOption{aer_margins}{
+    \geometry{tmargin=1.25in,bmargin=1.25in,lmargin=1.25in,rmargin=1.25in}
+    }        
 \ProcessOptions\relax
 
+%% TITLE/AUTHORS/AFFILIATIONS
 %% MAKE TITLE
 \ifbuildtitle
 \title{\mytitle\thanks{\mythanks}}
