@@ -132,7 +132,10 @@
 
 % for margins (see declare options below)
 \usepackage{geometry}
-% \usepackage{graphicx}
+    \geometry{tmargin=1.25in,bmargin=1.25in,lmargin=1.25in,rmargin=1.25in}
+
+% options for \includegraphics: https://ctan.org/pkg/graphicx
+\usepackage{graphicx}
 % \usepackage{xcolor}
 
 %% PRETTY COLORS
@@ -141,19 +144,20 @@
 \definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
 \definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
 
-% ROMAN NUMBERS FOR QJE
-\renewcommand{\thetable}{\Roman{table}}
-\renewcommand{\thefigure}{\Roman{figure}}
-
 %% DECLARE OPTIONS
 \newif\ifbuildtitle
 \buildtitletrue
 \DeclareOption{note}{\buildtitlefalse}
-\DeclareOption{ecma_margins}{
-        \geometry{tmargin=1.5in,bmargin=1.5in,lmargin=1.5in,rmargin=1.5in}
-        }
-\DeclareOption{aer_margins}{
+\DeclareOption{ecma}{
+    \geometry{tmargin=1.5in,bmargin=1.5in,lmargin=1.5in,rmargin=1.5in}
+    }
+\DeclareOption{aer}{
     \geometry{tmargin=1.25in,bmargin=1.25in,lmargin=1.25in,rmargin=1.25in}
+    }
+\DeclareOption{qje}{
+    % ROMAN NUMBERS FOR QJE
+    \renewcommand{\thetable}{\Roman{table}}
+    \renewcommand{\thefigure}{\Roman{figure}}
     }        
 \ProcessOptions\relax
 
