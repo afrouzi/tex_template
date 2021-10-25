@@ -10,6 +10,7 @@
 \usepackage{lscape}
 \usepackage{multirow}
 \usepackage{amsmath}
+    \allowdisplaybreaks[1]
 \usepackage{amsthm}
 \usepackage{thmtools}
 \declaretheoremstyle[
@@ -62,10 +63,21 @@
     \pgfplotsset{compat=1.13}
 \usepackage{appendix}
 \usepackage{titlesec}
-    \titlespacing*{\section}{0pt}{2ex plus 1ex minus .2ex}{1.5ex plus 1ex minus .2ex}
+    \titlespacing*{\section}{0pt}{1.7ex plus 1ex minus .2ex}{1.5ex plus 1ex minus .2ex}
     \titlespacing*{\subsection}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus 0.5ex minus .2ex}
     \titlespacing*{\subsubsection}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus 0.5ex minus .2ex}
     \titlespacing*{\paragraph}{0pt}{0.7ex plus .2ex minus .2ex}{0.7ex plus 0.2ex minus .2ex}
+\usepackage{enumitem}
+    \setlist{nosep}
+\usepackage{etoolbox}
+    \newcommand{\zerodisplayskips}{%
+      \setlength{\abovedisplayskip}{1ex}%
+      \setlength{\belowdisplayskip}{1ex}%
+      \setlength{\abovedisplayshortskip}{1ex}%
+      \setlength{\belowdisplayshortskip}{1ex}}
+    \appto{\normalsize}{\zerodisplayskips}
+    \appto{\small}{\zerodisplayskips}
+    \appto{\footnotesize}{\zerodisplayskips}
 % \usepackage[outdir=./]{epstopdf}
 % \usepackage{graphicx}
 % \usepackage{xcolor}
