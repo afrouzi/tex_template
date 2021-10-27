@@ -36,8 +36,7 @@
     spaceabove=2pt, spacebelow=2pt,
     headfont=\color{darkblue}\normalfont\bfseries,
     notefont=\mdseries\bfseries, notebraces={(}{)},
-    bodyfont=\color{darkblue}\normalfont,
-    qed=\qedsymbol
+    bodyfont=\color{darkblue}\normalfont
     ]{thmstyle}
 
     % lemma, corollary style
@@ -95,6 +94,9 @@
 
 % for captions:
 \usepackage{caption}
+    \captionsetup{belowskip=2pt,aboveskip=2pt}
+    % for table and figure notes:
+    \newcommand\notes[1]{\captionsetup{belowskip=0pt,aboveskip=2pt,font={footnotesize,stretch=1}}\caption*{\emph{Notes:} #1}}
 \usepackage{subcaption}
 
 % for plots and figures:
@@ -128,11 +130,11 @@
     \appto{\footnotesize}{\zerodisplayskips}
 
 % where to compile eps figures to pdf
-\usepackage[outdir=./content]{epstopdf}
+\usepackage[outdir=./figures/]{epstopdf}
 
 % for margins (see declare options below)
 \usepackage{geometry}
-    \geometry{tmargin=1.25in,bmargin=1.25in,lmargin=1.25in,rmargin=1.25in}
+    \geometry{tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
 
 % options for \includegraphics: https://ctan.org/pkg/graphicx
 \usepackage{graphicx}
