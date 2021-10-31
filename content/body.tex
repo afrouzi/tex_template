@@ -1,3 +1,40 @@
-% !TeX root = main.tex
+% !TeX root = ../main.tex
 Body of the paper/note goes here
 
+\begin{thm}\label{thm:sample}
+	Theorems are blue.
+\end{thm}
+
+\begin{prop}\label{prop:sample}
+	Propositions are blue too.
+\end{prop}
+
+\begin{remark}\label{remark:sample}
+	So are remarks!
+\end{remark}
+
+\begin{defn}\label{defn:sample}
+	Definitions are like this.
+\end{defn}
+
+\begin{lem}\label{lem:sample}
+	Lemmas, corollaries and proofs are italic.
+\end{lem}
+
+Here is \cref{eq:euler}:
+\begin{align}\label{eq:euler}
+	e^{i\pi} = -1 
+\end{align}
+
+and here is \cref{tab:sample} and \cref{fig:sample}:
+\import{figures/}{fig_sample.tex}
+\import{tables/}{tab_sample.tex}
+
+Some other corss-refereces:
+\cref{thm:sample},
+\cref{remark:sample},
+\cref{lem:sample},
+\cref{defn:sample},
+\cref{prop:sample}.
+
+Here is a citation: \cite{afrouzi2016dynamic}.

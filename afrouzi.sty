@@ -5,6 +5,9 @@
 % Font package: fourier by default which uses Adobe Utopia
 \usepackage{fourier}
 
+% https://ctan.org/pkg/microtype?lang=en
+\usepackage{microtype}
+
 % \caps{Small Caps}, \so{letter_spacing}, \ul{underline}, \st{overstriking}
 \usepackage{soul}
 
@@ -82,6 +85,13 @@
 \usepackage{hyperref}
     \hypersetup{colorlinks=true,linkcolor=darkred,citecolor=darkred,urlcolor=darkmagenta}
 
+% clever references
+\usepackage[capitalise,noabbrev]{cleveref}
+    \crefname{thm}{Theorem}{Theorems}
+    \crefname{lem}{Lemma}{Lemmas}
+    \crefname{defn}{Definition}{Definitions}
+    \crefname{prop}{Proposition}{Propositions}
+
 % for appendix: https://ctan.org/pkg/appendix, https://ctan.org/pkg/apptools
 \usepackage{appendix} % \appendix
 \usepackage{apptools} % \AtAppendix, \IfAppendix
@@ -96,7 +106,7 @@
 \usepackage{caption}
     \captionsetup{belowskip=2pt,aboveskip=2pt}
     % for table and figure notes:
-    \newcommand\notes[1]{\captionsetup{belowskip=0pt,aboveskip=2pt,font={footnotesize,stretch=1}}\caption*{\emph{Notes:} #1}}
+    \newcommand\notes[1]{\captionsetup{belowskip=0pt,aboveskip=2pt,font={footnotesize,stretch=1},justification=raggedright}\caption*{\emph{Notes:} #1}}
 \usepackage{subcaption}
 
 % for plots and figures:
@@ -130,7 +140,7 @@
     \appto{\footnotesize}{\zerodisplayskips}
 
 % where to compile eps figures to pdf
-\usepackage[outdir=./figures/]{epstopdf}
+\usepackage[outdir=./build/]{epstopdf}
 
 % for margins (see declare options below)
 \usepackage{geometry}
@@ -138,6 +148,10 @@
 
 % options for \includegraphics: https://ctan.org/pkg/graphicx
 \usepackage{graphicx}
+    % set scaling of figures (by default it is 1)
+    \newcommand{\myfigurescale}{1}
+    \setkeys{Gin}{width=\myfigurescale\textwidth}
+
 % \usepackage{xcolor}
 
 %% PRETTY COLORS
