@@ -15,8 +15,8 @@
 \usepackage{array}
 \usepackage{multirow} 
 \usepackage{booktabs}
-    % default table size 
-    \AtBeginEnvironment{tabular}{\mytablefontsize}
+    % default table size --- this creates an issue for author font size
+    \AtBeginEnvironment{table}{\mytablefontsize}
 
 % support for placement of figures/tables: https://ctan.org/pkg/float
 \usepackage{float}
@@ -120,7 +120,7 @@
 \usepackage{caption}
     \captionsetup{belowskip=2pt,aboveskip=2pt}
     % for table and figure notes:
-    \newcommand\notes[1]{\captionsetup{belowskip=0pt,aboveskip=2pt,font={footnotesize,stretch=1},justification=raggedright}\caption*{\emph{Notes:} #1}}
+    \newcommand\notes[1]{\captionsetup{belowskip=0pt,aboveskip=2pt,font={footnotesize,stretch=1},justification=justified}\caption*{\emph{Notes:} #1}}
 \usepackage{subcaption}
 
 % for plots and figures:
@@ -169,8 +169,8 @@
 
 %% PRETTY COLORS
 \definecolor{darkred}{rgb}{0.5, 0.125, 0.0}
-\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.25}
-\definecolor{darkblue}{rgb}{0.0, 0.25, 0.5}
+\definecolor{darkgreen}{rgb}{0.0, 0.4, 0.2}
+\definecolor{darkblue}{rgb}{0.0, 0.125, 0.5}
 \definecolor{darkmagenta}{rgb}{0.5, 0.25, 0.5}
 
 %% DECLARE OPTIONS
