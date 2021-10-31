@@ -1,3 +1,12 @@
+\documentclass[12pt,english]{article}
+\usepackage[comments]{afrouzi}
+% Options for 'afrouzi' style: 
+% 'comment': side comments 
+% 'note': skips the title page
+% 'ecma': Econometrica submission guidelines; 1.5 inch margins from all sides
+% 'aer': AER submission guidelines; 1.25 inch margins from all sides
+% 'qje': QJE submission guidelines; Roman table/figure numbers
+
 %% TITLE/BIBLIOGRAPHY INFO:
     \newcommand{\mytitle}{TITLE}
     \newcommand{\mythanks}{TITLE FOOTNOTE}
@@ -16,17 +25,13 @@
     \newcommand{\mybibstyle}{econometrica} % or aer
     \newcommand{\mybibfile}{references.bib}
 
-\documentclass[12pt,english]{article}
-\usepackage[]{afrouzi}
-% Options for afrouzi_style: 
-% 'note': skips the title page
-% 'ecma': Econometrica submission guidelines; 1.5 inch margins from all sides
-% 'aer': AER submission guidelines; 1.25 inch margins from all sides
-% 'qje': QJE submission guidelines; Roman table/figure numbers
+%% Comment Authors: 
+    % \commentauthor{name}{command}{color}
+    \commentauthor{Hassan}{\hassan}{magenta}
 
-%% CHANGE FONT: (default is Utopia text/math)
-% \usepackage{mathpazo} Palatino text/math
-% \usepackage{times} Times New Roman text 
+%% OTHER OPTIONS:
+    \newcommand{\mytablefontsize}{\normalfont} % or \small or \scriptsize
+    \newcommand{\myfigurescale}{1} % or < 1
 
 \begin{document}
 
@@ -36,16 +41,14 @@
 
 %% BIBLIOGRAPHY
 \begin{singlespace}
-\newpage{}
-    \small 
+    {\small 
     \bibliographystyle{\mybibstyle}
-    \bibliography{\mybibfile}
+    \bibliography{\mybibfile}}
 \end{singlespace}
 
 %% IMPORT APPENDIX
-
-% \onehalfspacing
-%     \appendix
-%     \import{}{appendix.tex}
+    % appendix included in the paper
+    % \appendix 
+    % \onlineappendixheader
 
 \end{document}

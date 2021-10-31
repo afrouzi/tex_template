@@ -15,6 +15,8 @@
 \usepackage{array}
 \usepackage{multirow} 
 \usepackage{booktabs}
+    % default table size 
+    \AtBeginEnvironment{tabular}{\mytablefontsize}
 
 % support for placement of figures/tables: https://ctan.org/pkg/float
 \usepackage{float}
@@ -96,11 +98,22 @@
 \usepackage{appendix} % \appendix
 \usepackage{apptools} % \AtAppendix, \IfAppendix
     \AtAppendix{
-            \counterwithin{prop}{section}
-            \counterwithin{lem}{section}
-            \counterwithin{cor}{section}
-            \numberwithin{equation}{section}
-            }
+        \counterwithin{prop}{section}
+        \counterwithin{lem}{section}
+        \counterwithin{cor}{section}
+        \counterwithin{table}{section}
+        \counterwithin{figure}{section}
+        \numberwithin{equation}{section}
+    }
+    \newcommand{\onlineappendixheader}{
+        \newpage
+        \vspace*{\fill}
+        \begin{center}
+        \textbf{{\huge APPENDIX}  \\ {\Large(FOR ONLINE PUBLICATION)}}
+        \end{center}
+        \vspace*{\fill}
+        \newpage
+    }
 
 % for captions:
 \usepackage{caption}
@@ -140,7 +153,7 @@
     \appto{\footnotesize}{\zerodisplayskips}
 
 % where to compile eps figures to pdf
-\usepackage[outdir=./build/]{epstopdf}
+\usepackage[outdir=./content/figures/]{epstopdf}
 
 % for margins (see declare options below)
 \usepackage{geometry}
@@ -149,7 +162,6 @@
 % options for \includegraphics: https://ctan.org/pkg/graphicx
 \usepackage{graphicx}
     % set scaling of figures (by default it is 1)
-    \newcommand{\myfigurescale}{1}
     \setkeys{Gin}{width=\myfigurescale\textwidth}
 
 % \usepackage{xcolor}
@@ -161,9 +173,14 @@
 \definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
 
 %% DECLARE OPTIONS
+% if for building the title page 
 \newif\ifbuildtitle
 \buildtitletrue
 \DeclareOption{note}{\buildtitlefalse}
+% if for comments
+\newif\ifcomments
+\commentsfalse
+\DeclareOption{comments}{\commentstrue}
 \DeclareOption{ecma}{
     \geometry{tmargin=1.5in,bmargin=1.5in,lmargin=1.5in,rmargin=1.5in}
     }
@@ -198,6 +215,23 @@
     \pagenumbering{arabic}
 }
 \fi
+
+%%EXPAND THE MARGIN FOR COMMENTS
+\ifcomments
+  \paperwidth=\dimexpr \paperwidth + 3cm\relax
+  \oddsidemargin=\dimexpr\oddsidemargin \relax
+  \evensidemargin=\dimexpr\evensidemargin + 3cm\relax
+  \marginparwidth=\dimexpr \marginparwidth + 3cm\relax
+  \usepackage{todonotes}
+\else
+  \usepackage[disable]{todonotes}
+\fi 
+
+% define comment author: \commentauthor{Author}{command}{color}
+\newcommand{\commentauthor}[3]{
+    \newcommand{#2}[1]{\todo[color=#3!30, size=\scriptsize]
+     {\begin{spacing}{1}\textbf{#1:} \\ \texttt{##1}\end{spacing}}}
+}
 
 %% OTHER COMMANDS:
 \renewcommand{\d}{\mathrm{d}}
