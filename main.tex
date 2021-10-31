@@ -1,7 +1,7 @@
 \documentclass[12pt,english]{article}
 \usepackage[comments]{afrouzi}
 % Options for 'afrouzi' style: 
-% 'comment': side comments 
+% 'comments': side comments 
 % 'note': skips the title page
 % 'ecma': Econometrica submission guidelines; 1.5 inch margins from all sides
 % 'aer': AER submission guidelines; 1.25 inch margins from all sides
@@ -9,12 +9,16 @@
 
 %% TITLE/BIBLIOGRAPHY INFO:
     \newcommand{\mytitle}{TITLE}
-    \newcommand{\mythanks}{TITLE FOOTNOTE}
+    \newcommand{\mytitlefootnote}{TITLE FOOTNOTE}
     \newcommand{\myauthors}{
-        AUTHOR 1  \\ AFFILIATION 1
+        AUTHOR 1\thanks{Email: \email{hassan.afrouzi@columbia.edu}. ADDRESS.}
+        \\ 
+        AFFILIATION 1
         % uncomment for more authors:
         % \and
-        % AUTHOR 2 \\ AFFILIATION 2
+        % AUTHOR 2\thanks{Email: \email{name@org.edu}. ADDRESS.}
+        % \\ 
+        % AFFILIATION 2
     }
     \newcommand{\mydate}{\today}
     \newcommand{\myjelcodes}{JEL CODES}
