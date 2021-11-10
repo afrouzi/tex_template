@@ -10,7 +10,7 @@ cd $PROJECT_NAME
 rm README.md
 [ -d .git ] && rm -r -f .git 
 git init 
-echo "*.bash" >> .gitignore
+echo "*.bash\n*.pdf" >> .gitignore
 git add -A 
 git commit -m "init commit" -a
 code . -r
