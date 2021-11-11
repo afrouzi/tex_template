@@ -9,8 +9,17 @@ mv tex_template $PROJECT_NAME
 cd $PROJECT_NAME
 rm README.md
 [ -d .git ] && rm -r -f .git 
-git init 
+
+# rename main.tex 
+mv main.tex $PROJECT_NAME.tex
+
+# reset content/references.bib + create gitignore
 echo "*.bash\n*.pdf" >> .gitignore
+echo -n "% !TeX root = ../$PROJECT_NAME.tex" >> content/body.tex
+echo -n "references.bib"
+
+# create first commmit
+git init 
 git add -A 
 git commit -m "init commit" -a
 code . -r
