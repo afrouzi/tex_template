@@ -1,5 +1,5 @@
 # This file changes the parent folder name to your project's name and initializes a git repository in the folder
-# To run the file: enter the following command in terminal: 'source ./initialize.bash'
+# To run the file: enter the following command in terminal: 'sh ./initialize.bash'
 echo "Enter your project name:"
 read PROJECT_NAME
 
@@ -15,8 +15,8 @@ mv main.tex $PROJECT_NAME.tex
 
 # reset content/references.bib + create gitignore
 echo "*.bash\n*.pdf" >> .gitignore
-echo -n "% !TeX root = ../$PROJECT_NAME.tex" > content/body.tex
-echo -n "" > references.bib
+echo "% !TeX root = ../$PROJECT_NAME.tex" > content/body.tex
+echo "" > references.bib
 
 # create first commmit
 git init 
