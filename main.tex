@@ -1,5 +1,5 @@
 \documentclass[12pt,english]{article}
-\usepackage[comments]{afrouzi}
+\usepackage[comments]{style/afrouzi}
 % Options for 'afrouzi' style: 
 % 'comments': side comments 
 % 'note': skips the title page
@@ -26,17 +26,23 @@
     \newcommand{\myabstract}{
         ABSTRACT
     }
-    \newcommand{\mybibstyle}{econometrica} % or aer
-    \newcommand{\mybibfile}{references.bib}
+    \newcommand{\mybibstyle}{style/econometrica} % or aer
+    \newcommand{\mybibfile}{references/references.bib}
 
 %% Comment Authors: 
     \commentauthor{Hassan}{\hassan}{magenta}
+
+%% OTHER OPTIONS:
+    % set scaling of figures (by default it is 1)
+    \newcommand{\myfigurescale}{1} % or < 1
+    % default table size --- this creates an issue for author font size
+    \newcommand{\mytablefontsize}{\normalfont} % or \small or \scriptsize --- this also changes the author font size ...
 
 \begin{document}
 
 %% IMPORT CONTENT
 \onehalfspacing
-    \import{content/}{body.tex}
+    \import{}{content.tex}
 
 %% BIBLIOGRAPHY
     \printreferences
