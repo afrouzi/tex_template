@@ -1,6 +1,7 @@
 \documentclass[12pt,english]{article}
-\usepackage[comments]{style/afrouzi}
+\usepackage[compact]{style/afrouzi}
 % Options for 'afrouzi' style: 
+% 'compact': saves space 
 % 'comments': side comments 
 % 'note': skips the title page
 % 'ecma': Econometrica submission guidelines; 1.5 inch margins from all sides
@@ -34,9 +35,9 @@
 
 %% OTHER OPTIONS:
     % set scaling of figures (by default it is 1)
-    \newcommand{\myfigurescale}{1} % or < 1
+    \renewcommand{\myfigurescale}{1} % or < 1
     % default table size --- this creates an issue for author font size
-    \newcommand{\mytablefontsize}{\normalfont} % or \small or \scriptsize --- this also changes the author font size ...
+    \renewcommand{\mytablefontsize}{\normalfont} % or \small or \scriptsize --- this also changes the author font size ...
 
 \begin{document}
 
@@ -50,6 +51,7 @@
 %% IMPORT APPENDIX
     % appendix included in the paper
     % \appendix 
+    % \appendixpage
     % \onlineappendixheader
 
 \end{document}
