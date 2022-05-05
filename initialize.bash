@@ -5,9 +5,9 @@
 if [ -z "$1" ]
   then
     echo "No argument supplied"
-    PROJECT_NAME = "my_project"
+    PROJECT_NAME="my_project"
   else
-    PROJECT_NAME = $1
+    PROJECT_NAME=$1
 fi
 
 cd ..
