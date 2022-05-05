@@ -1,7 +1,14 @@
+#!/bin/bash  
+
 # This file changes the parent folder name to your project's name and initializes a git repository in the folder
-# To run the file: enter the following command in terminal: 'sh ./initialize.bash'
-echo "Enter your project name:"
-read PROJECT_NAME
+# To run the file: enter the following command in terminal: 'sh ./initialize.bash PROJECT_NAME'
+if [ -z "$1" ]
+  then
+    echo "No argument supplied"
+    PROJECT_NAME = "my_project"
+  else
+    PRJECT_NAME = $1
+fi
 
 cd ..
 mv tex_template $PROJECT_NAME
